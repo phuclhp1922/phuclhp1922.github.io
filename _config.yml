@@ -1,0 +1,25 @@
+title: Engineering Notes
+description: Posts about my engineering projects.
+url: https://phuclhp1922.github.io
+baseurl: ""
+github_username: phuclhp1922
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Every post gets the math layout (minima's post layout + MathJax).
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: math
+
+exclude:
+  - README.md
