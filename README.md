@@ -6,10 +6,23 @@ This is Jekyll with the default `minima` theme, built by GitHub Pages itself.
 There's no build pipeline, no local toolchain and no dependency file to keep updated.
 GitHub rebuilds the site about 1 minute after every push to `main`.
 
-## Write and publish a post
+## Sections
 
-1. Create a file in `_posts/` named `YYYY-MM-DD-short-slug.md`, for example
-   `_posts/2026-10-15-lora-rank-ablation.md`. The date in the name is the post's date.
+The site has two sections, linked at the top right of every page. The folder a file
+sits in decides its section:
+
+| Section | Put the file in | Listed at |
+|---|---|---|
+| Posts: full, mature write-ups | `posts/_posts/` | `/posts.html` |
+| Notes: short notes on papers from the reading list | `notes/_posts/` | `/notes.html` |
+
+The home page lists everything from both sections, newest first.
+
+## Write and publish a post or note
+
+1. Create a file named `YYYY-MM-DD-short-slug.md` in the folder for its section, for example
+   `posts/_posts/2026-10-15-lora-rank-ablation.md` or `notes/_posts/2026-10-15-colbert.md`.
+   The date in the name is the publish date.
 2. Start the file with:
 
    ```markdown
@@ -53,7 +66,7 @@ To keep a post unpublished, put `published: false` in its front matter.
 
 For diagrams, draw them in Excalidraw or draw.io and export SVG or PNG.
 
-See `_posts/2026-10-08-hello-world.md` for a working example of all three.
+See `posts/_posts/2026-10-08-hello-world.md` for a working example of all three.
 
 ## How it's wired
 
@@ -61,6 +74,16 @@ See `_posts/2026-10-08-hello-world.md` for a working example of all three.
 |---|---|
 | `_config.yml` | Site title, theme, markdown settings |
 | `_layouts/math.html` | minima's post layout plus the MathJax script; all posts use it automatically |
-| `_posts/` | Your posts |
+| `posts/_posts/`, `notes/_posts/` | Your posts and notes |
+| `posts.html`, `notes.html` | The section pages in the top-right nav (order is set by `header_pages` in `_config.yml`) |
+| `_includes/post-list.html` | The list markup both section pages share |
 | `assets/images/` | Images |
-| `index.md` | Home page, which lists posts |
+| `index.md` | Home page, which lists everything |
+
+## Adding another section later
+
+For a section called `talks`, for example:
+
+1. Create the folder `talks/_posts/`.
+2. Copy `notes.html` to `talks.html`, then change `title:` and `site.categories.notes` to `site.categories.talks`.
+3. Add `talks.html` under `header_pages` in `_config.yml`.
