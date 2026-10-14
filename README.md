@@ -18,6 +18,9 @@ sits in decides its section:
 
 The home page lists everything from both sections, newest first.
 
+The **reading list** is `paper_checklist.md`, published at `/reading-list.html` and linked from the
+Notes page. Edit it like any other file and push. Keep the `---` block at the top, since it sets the URL.
+
 ## Write and publish a post or note
 
 1. Create a file named `YYYY-MM-DD-short-slug.md` in the folder for its section, for example
@@ -77,6 +80,7 @@ See `posts/_posts/2026-10-08-hello-world.md` for a working example of all three.
 | `posts/_posts/`, `notes/_posts/` | Your posts and notes |
 | `posts.html`, `notes.html` | The section pages in the top-right nav (order is set by `header_pages` in `_config.yml`) |
 | `_includes/post-list.html` | The list markup both section pages share |
+| `paper_checklist.md` | The reading list page (`/reading-list.html`) |
 | `assets/images/` | Images |
 | `index.md` | Home page, which lists everything |
 
