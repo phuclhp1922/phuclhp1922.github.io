@@ -1,0 +1,14 @@
+---
+layout: page
+title: Books
+---
+{%- assign books = site.pages | where: "layout", "book" | sort: "title" -%}
+{%- assign groups = books | group_by: "category" | sort: "name" -%}
+{%- for group in groups %}
+<h2>{{ group.name }}</h2>
+<ul>
+  {%- for book in group.items %}
+  <li><a href="{{ book.url | relative_url }}">{{ book.title | escape }}</a>{% if book.author %} by {{ book.author }}{% endif %}</li>
+  {%- endfor %}
+</ul>
+{%- endfor %}

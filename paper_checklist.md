@@ -1,8 +1,8 @@
 ---
-# Published at /reading-list.html. layout: default because the file has its own H1.
+# Published at /papers/reading-list.html. layout: default because the file has its own H1.
 layout: default
 title: Reading List
-permalink: /reading-list.html
+permalink: /papers/reading-list.html
 ---
 
 # AI Reading Path — Checklist

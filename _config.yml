@@ -24,7 +24,8 @@ defaults:
 # Top-right navigation, in this order.
 header_pages:
   - posts.html
-  - notes.html
+  - papers.html
+  - books.html
 
 exclude:
   - README.md

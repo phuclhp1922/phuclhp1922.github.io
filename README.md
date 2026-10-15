@@ -8,18 +8,48 @@ GitHub rebuilds the site about 1 minute after every push to `main`.
 
 ## Sections
 
-The site has two sections, linked at the top right of every page. The folder a file
-sits in decides its section:
+Three sections are linked at the top right of every page: **Posts | Papers | Books**.
 
-| Section | Put the file in | Listed at |
+| Section | What goes there | Page |
 |---|---|---|
-| Posts: full, mature write-ups | `posts/_posts/` | `/posts.html` |
-| Notes: short notes on papers from the reading list | `notes/_posts/` | `/notes.html` |
+| Posts | Full, mature write-ups. Files go in `posts/_posts/`. | `/posts.html` |
+| Papers | A landing page linking two sub-pages, plus your paper notes (files in `notes/_posts/`). | `/papers.html` |
+| ↳ Reading list | `paper_checklist.md` | `/papers/reading-list.html` |
+| ↳ Thesis | `thesis.md`, a copy of `D:/graduation_thesis/ai-var-thesis-brief.md` | `/papers/thesis.html` |
+| Books | One folder per book under `books/`, holding its `/teach` output. | `/books.html` |
 
-The home page lists everything from both sections, newest first.
+The home page lists posts and paper notes together, newest first.
 
-The **reading list** is `paper_checklist.md`, published at `/reading-list.html` and linked from the
-Notes page. Edit it like any other file and push. Keep the `---` block at the top, since it sets the URL.
+Edit `paper_checklist.md` like any other file and push. When the thesis brief changes, copy it
+over the body of `thesis.md`. In both files, keep the `---` block at the top, since it sets the URL.
+
+## Add a book
+
+A book is a folder under `books/` holding the files `/teach` produces, published as-is:
+
+```
+books/designing-data-intensive-applications/
+  index.md          <- the book page (you write this, 5 lines)
+  lessons/*.html    <- copied from the /teach workspace
+  reference/*.html  <- copied from the /teach workspace (optional)
+  assets/*          <- copied from the /teach workspace (lesson.css, quiz.js, review.js)
+```
+
+`index.md`:
+
+```markdown
+---
+layout: book
+title: Designing Data-Intensive Applications
+author: Martin Kleppmann
+category: Distributed Systems
+---
+
+One or two lines about why you're reading it.
+```
+
+The book page lists every file in `lessons/` and `reference/` automatically. The Books page
+groups books by `category`. `books/example-book/` is a placeholder; delete it once you have a real book.
 
 ## Write and publish a post or note
 
@@ -77,10 +107,11 @@ See `posts/_posts/2026-10-08-hello-world.md` for a working example of all three.
 |---|---|
 | `_config.yml` | Site title, theme, markdown settings |
 | `_layouts/math.html` | minima's post layout plus the MathJax script; all posts use it automatically |
-| `posts/_posts/`, `notes/_posts/` | Your posts and notes |
-| `posts.html`, `notes.html` | The section pages in the top-right nav (order is set by `header_pages` in `_config.yml`) |
+| `posts/_posts/`, `notes/_posts/` | Your posts and paper notes |
+| `posts.html`, `papers.html`, `books.html` | The section pages in the top-right nav (order is set by `header_pages` in `_config.yml`) |
+| `_layouts/book.html` | The book page: lists a book's lessons and reference pages |
 | `_includes/post-list.html` | The list markup both section pages share |
-| `paper_checklist.md` | The reading list page (`/reading-list.html`) |
+| `paper_checklist.md`, `thesis.md` | The Papers sub-pages |
 | `assets/images/` | Images |
 | `index.md` | Home page, which lists everything |
 
@@ -89,5 +120,5 @@ See `posts/_posts/2026-10-08-hello-world.md` for a working example of all three.
 For a section called `talks`, for example:
 
 1. Create the folder `talks/_posts/`.
-2. Copy `notes.html` to `talks.html`, then change `title:` and `site.categories.notes` to `site.categories.talks`.
+2. Copy `posts.html` to `talks.html`, then change `title:` and `site.categories.posts` to `site.categories.talks`.
 3. Add `talks.html` under `header_pages` in `_config.yml`.

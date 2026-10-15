@@ -1,0 +1,28 @@
+---
+layout: page
+---
+{%- comment -%}
+A book page lists the /teach output copied into its folder: lessons/*.html and reference/*.html,
+published as-is (they have no front matter, so Jekyll copies them untouched).
+{%- endcomment -%}
+<p class="post-meta">{% if page.author %}{{ page.author }} · {% endif %}{{ page.category }}</p>
+{{ content }}
+{%- assign files = site.static_files | where_exp: "f", "f.path contains page.dir" | where: "extname", ".html" | sort: "path" -%}
+{%- assign lessons = files | where_exp: "f", "f.path contains '/lessons/'" -%}
+{%- assign references = files | where_exp: "f", "f.path contains '/reference/'" -%}
+{%- if lessons.size > 0 %}
+<h2>Lessons</h2>
+<ul>
+  {%- for f in lessons %}
+  <li><a href="{{ f.path | relative_url }}">{{ f.basename | replace: "-", " " }}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif %}
+{%- if references.size > 0 %}
+<h2>Reference</h2>
+<ul>
+  {%- for f in references %}
+  <li><a href="{{ f.path | relative_url }}">{{ f.basename | replace: "-", " " }}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif %}
