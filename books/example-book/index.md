@@ -5,4 +5,4 @@ author: Author Name
 category: Example category
 ---
 
-Placeholder book. It shows how a book's `/teach` lessons appear here. Replace or delete it.
+Placeholder book. It shows how a book's chapter notes appear here. Replace or delete it.

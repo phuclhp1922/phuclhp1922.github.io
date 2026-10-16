@@ -15,17 +15,23 @@ kramdown:
   syntax_highlighter: rouge
 
 # Every post gets the math layout (minima's post layout + MathJax).
+# Every page under books/ is a chapter unless it sets its own layout (book index.md sets layout: book).
 defaults:
   - scope:
       type: posts
     values:
       layout: math
+  - scope:
+      path: books
+      type: pages
+    values:
+      layout: chapter
 
 # Top-right navigation, in this order.
 header_pages:
-  - posts.html
-  - papers.html
-  - books.html
+  - posts/index.html
+  - papers/index.html
+  - books/index.html
 
 exclude:
   - README.md

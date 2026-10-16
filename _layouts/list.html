@@ -1,0 +1,11 @@
+---
+layout: page
+---
+{%- comment -%} A list page: shows every post whose folder category matches page.list_category. {%- endcomment -%}
+{{ content }}
+{%- assign items = site.categories[page.list_category] -%}
+{%- if items.size > 0 %}
+{% include post-list.html posts=items %}
+{%- else %}
+<p>No notes yet.</p>
+{%- endif %}

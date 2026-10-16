@@ -1,5 +1,10 @@
 ---
 layout: post
 ---
+{%- comment -%} Every post and paper note: back link to its list page, then MathJax. {%- endcomment -%}
+{%- assign parent = site.pages | where: "list_category", page.categories.last | first -%}
+{%- if parent %}
+<p><a href="{{ parent.url | relative_url }}">&larr; {{ parent.title }}</a></p>
+{%- endif %}
 {{ content }}
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{% include mathjax.html %}

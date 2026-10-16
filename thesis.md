@@ -3,7 +3,7 @@
 # keeping this block. layout: default because the brief has its own H1.
 layout: default
 title: Thesis
-permalink: /papers/thesis.html
+permalink: /papers/thesis/brief.html
 ---
 
 # AI-VAR Thesis — Working Brief

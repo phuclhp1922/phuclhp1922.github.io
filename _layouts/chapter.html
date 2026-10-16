@@ -1,0 +1,9 @@
+---
+layout: page
+---
+{%- assign book = site.pages | where: "dir", page.dir | where: "layout", "book" | first -%}
+{%- if book %}
+<p class="post-meta"><a href="{{ book.url | relative_url }}">&larr; {{ book.title }}</a> · Chapter {{ page.chapter }}</p>
+{%- endif %}
+{{ content }}
+{% include mathjax.html %}
