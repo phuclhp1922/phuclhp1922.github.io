@@ -96,8 +96,7 @@ Your notes. Code and $$math$$ work as in posts.
 ```
 
 The book page lists its chapters in `chapter:` order, and the Books page groups books by
-`category`. If you also copy `/teach` output into the book folder (`lessons/*.html`,
-`reference/*.html` and `assets/`), the book page lists those under "Lessons" and "Reference".
+`category`.
 
 `books/example-book/` is a placeholder. Delete it once you have a real book.
 
@@ -131,7 +130,7 @@ See `posts/_posts/2026-10-08-hello-world.md` for a working example of all three.
 | `papers/reading-list/index.html`, `papers/thesis/index.html` | The paper-note list pages |
 | `_layouts/list.html` | A list page: shows the posts whose folder matches `list_category` |
 | `_layouts/math.html` | Posts and paper notes: minima's post layout plus a back link and MathJax |
-| `_layouts/book.html` | A book page: lists its chapters (and any `/teach` lessons) |
+| `_layouts/book.html` | A book page: lists its chapters |
 | `_layouts/chapter.html` | A chapter note: back link to its book, plus MathJax |
 | `_includes/post-list.html` | The list markup the list pages share |
 | `_includes/mathjax.html` | The MathJax script tag |

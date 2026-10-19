@@ -3,7 +3,6 @@ layout: page
 ---
 {%- comment -%}
 A book page lists its chapters: the .md files in the same folder that set `chapter:`, in chapter order.
-If the folder also holds /teach output (lessons/*.html, reference/*.html), those are listed too.
 {%- endcomment -%}
 <p class="post-meta"><a href="{{ "/books/" | relative_url }}">&larr; Books</a>{% if page.author %} · {{ page.author }}{% endif %}{% if page.category %} · {{ page.category }}{% endif %}</p>
 {{ content }}
@@ -17,23 +16,4 @@ If the folder also holds /teach output (lessons/*.html, reference/*.html), those
 </ul>
 {%- else %}
 <p>No chapter notes yet.</p>
-{%- endif %}
-{%- assign files = site.static_files | where_exp: "f", "f.path contains page.dir" | where: "extname", ".html" | sort: "path" -%}
-{%- assign lessons = files | where_exp: "f", "f.path contains '/lessons/'" -%}
-{%- assign references = files | where_exp: "f", "f.path contains '/reference/'" -%}
-{%- if lessons.size > 0 %}
-<h2>Lessons</h2>
-<ul>
-  {%- for f in lessons %}
-  <li><a href="{{ f.path | relative_url }}">{{ f.basename | replace: "-", " " }}</a></li>
-  {%- endfor %}
-</ul>
-{%- endif %}
-{%- if references.size > 0 %}
-<h2>Reference</h2>
-<ul>
-  {%- for f in references %}
-  <li><a href="{{ f.path | relative_url }}">{{ f.basename | replace: "-", " " }}</a></li>
-  {%- endfor %}
-</ul>
 {%- endif %}
