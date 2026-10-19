@@ -98,8 +98,6 @@ Your notes. Code and $$math$$ work as in posts.
 The book page lists its chapters in `chapter:` order, and the Books page groups books by
 `category`.
 
-`books/example-book/` is a placeholder. Delete it once you have a real book.
-
 ## Writing reference
 
 **Code**: use a fenced block with the language name for syntax highlighting:
